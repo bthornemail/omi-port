@@ -23,11 +23,25 @@ The public API is defined in `include/omi_port.h` and implemented in
 | `omi_port_is_f_gauge` | Check gauge in F0..FF |
 | `omi_port_scope_from_string` | Parse URI-CIDR text into scope |
 | `omi_port_transform` | Core PortTensor_G transform |
-| `omi_port_is_authoritative` | Query authority acceptance |
-| `omi_port_has_side_effects` | Query I/O flags |
+| `omi_port_is_authoritative` | v0 stub: always returns 0 (authority conferred externally) |
+| `omi_port_has_side_effects` | v0 stub: always returns 0 (no I/O in dormant layer) |
 | `omi_port_is_omicron_ascii` | Check o/O |
 | `omi_port_chirality_bit` | 0x20 bit value |
 | `omi_port_flip_case_bit` | XOR 0x20 |
+
+### Authority Stubs (v0)
+
+Both `omi_port_is_authoritative()` and `omi_port_has_side_effects()`
+always return 0 regardless of the authority flag values. Authority is
+conferred externally by the validation/receipt/acceptance pipeline.
+These stubs will be wired when the downstream layer connects authority
+queries.
+
+### Deprecated Mnemonics
+
+The canonical output topology uses FS/GS/RS/US (four-scope) ordering.
+LL, MM, and NN are deprecated historical 3-slot transform mnemonics
+only. No public ABI symbol contains the substrings `LL`, `MM`, or `NN`.
 
 ### Portability
 

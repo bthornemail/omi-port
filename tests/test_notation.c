@@ -55,7 +55,34 @@ int main(void)
               "route_init zeros all authority flags");
     }
 
-    /* 7. NULL-safe authority queries */
+    /* 7. LL/MM/NN do not appear in public ABI symbols */
+    {
+        /* Verify by stringizing known public function names */
+        #define STR(x) #x
+        #define CHECK_NO_DEPRECATED_MNEMONIC(sym)                                    \
+            do {                                                                     \
+                const char* _s = STR(sym);                                           \
+                CHECK(strstr(_s, "LL") == NULL,                                      \
+                      "symbol '" STR(sym) "' does not contain 'LL'");                \
+                CHECK(strstr(_s, "MM") == NULL,                                      \
+                      "symbol '" STR(sym) "' does not contain 'MM'");                \
+                CHECK(strstr(_s, "NN") == NULL,                                      \
+                      "symbol '" STR(sym) "' does not contain 'NN'");                \
+            } while (0)
+
+        CHECK_NO_DEPRECATED_MNEMONIC(omi_port_scope_init);
+        CHECK_NO_DEPRECATED_MNEMONIC(omi_port_route_init);
+        CHECK_NO_DEPRECATED_MNEMONIC(omi_port_is_f_gauge);
+        CHECK_NO_DEPRECATED_MNEMONIC(omi_port_scope_from_string);
+        CHECK_NO_DEPRECATED_MNEMONIC(omi_port_transform);
+        CHECK_NO_DEPRECATED_MNEMONIC(omi_port_is_authoritative);
+        CHECK_NO_DEPRECATED_MNEMONIC(omi_port_has_side_effects);
+        CHECK_NO_DEPRECATED_MNEMONIC(omi_port_is_omicron_ascii);
+        CHECK_NO_DEPRECATED_MNEMONIC(omi_port_chirality_bit);
+        CHECK_NO_DEPRECATED_MNEMONIC(omi_port_flip_case_bit);
+    }
+
+    /* 8. NULL-safe authority queries */
     CHECK(omi_port_is_authoritative(NULL) == 0,
           "is_authoritative(NULL) returns 0");
     CHECK(omi_port_has_side_effects(NULL) == 0,

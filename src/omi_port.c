@@ -156,14 +156,23 @@ OMI_PortResult omi_port_transform(
 
 int omi_port_is_authoritative(const OMI_PortAuthority* authority)
 {
-    if (!authority) return 0;
-    return authority->accepted && authority->validated && authority->receipted;
+    (void)authority;
+    /* v0: dormant layer only. Authority is conferred externally by the
+     * validation/receipt/acceptance pipeline. No omi-port route is ever
+     * authoritative. This stub will be wired when the downstream layer
+     * connects authority queries.
+     */
+    return 0;
 }
 
 int omi_port_has_side_effects(const OMI_PortAuthority* authority)
 {
-    if (!authority) return 0;
-    return authority->connects || authority->transmits || authority->mounts;
+    (void)authority;
+    /* v0: dormant layer only. No omi-port route ever has side effects.
+     * This stub will be wired when the downstream layer connects I/O
+     * queries.
+     */
+    return 0;
 }
 
 /* ------------------------------------------------------------------ */

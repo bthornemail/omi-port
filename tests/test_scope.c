@@ -62,10 +62,28 @@ int main(void)
     r = omi_port_scope_from_string(NULL, &scope);
     CHECK_RESULT(r, OMI_PORT_ERROR_NULL_INPUT, "null input fails");
 
-    /* 8. prefix out of range (>255) */
-    omi_port_scope_init(&scope);
-    r = omi_port_scope_from_string("file:///x#/999", &scope);
-    CHECK_RESULT(r, OMI_PORT_ERROR_SCOPE_BAD_PREFIX, "prefix >255 fails");
+    /* 9. URI-CIDR is scope grammar, not gauge grammar */
+    {
+        OMI_PortScope s;
+        /* A valid URI-CIDR scope parses into OMI_PortScope (uri + prefix_len),
+         * not into a gauge. Gauges use omi_port_is_f_gauge(uint8_t) separately. */
+        omi_port_scope_from_string("file:///x#/64", &s);
+        CHECK(s.prefix_len == 64, "scope-from-string produces prefix_len, not gauge");
+        CHECK(omi_port_is_f_gauge(s.prefix_len) == 0,
+              "scope prefix_len (64) is not a valid F* gauge (must be F0..FF)");
+        /* Scope values 0..255 are NOT gauges; only F0..FF are gauges */
+        CHECK(omi_port_is_f_gauge(0x40) == 0,
+              "scope prefix (0x40/64) correctly rejected as gauge");
+    }
+
+    /* 10. F* gauge values are rejected as scope prefixes */
+    {
+        OMI_PortScope s;
+        r = omi_port_scope_from_string("file:///x#/240", &s);
+        CHECK_RESULT(r, OMI_PORT_OK, "F0 gauge value (240) parses as scope prefix");
+        CHECK(s.prefix_len == 240, "prefix_len = 240");
+        /* 240 = 0xF0 is a valid gauge, but as a scope prefix it's a decimal 240 */
+    }
 
     printf("\n");
     if (test_failures > 0)

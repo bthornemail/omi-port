@@ -4,9 +4,10 @@
 
 | Binary | File | Checks | Purpose |
 |--------|------|--------|---------|
-| `test_scope` | `tests/test_scope.c` | 8+ | URI-CIDR scope parser |
+| `test_scope` | `tests/test_scope.c` | 10+ | URI-CIDR scope parser, scope!=gauge |
 | `test_transform` | `tests/test_transform.c` | 15+ | PortTensor_G transform |
-| `test_notation` | `tests/test_notation.c` | 10+ | Omicron chirality, init |
+| `test_notation` | `tests/test_notation.c` | 20+ | Omicron chirality, init, LL/MM/NN absence |
+| `test_authority_negative` | `tests/test_authority_negative.c` | 12+ | Negative authority proof |
 
 ## Coverage by Area
 
@@ -20,6 +21,8 @@
 - [x] URI > 255 bytes returns error
 - [x] Null input returns error
 - [x] Prefix > 255 returns error
+- [x] URI-CIDR is scope grammar: prefix_len is not a gauge
+- [x] F* gauge values (240) parse as scope prefix (separate namespace)
 
 ### Transform (test_transform.c)
 
@@ -37,6 +40,16 @@
 - [x] 00 gauge fails
 - [x] FE gauge succeeds
 
+### Negative Authority (test_authority_negative.c)
+
+- [x] Fresh route: all flags = 0
+- [x] Fresh route: queries return 0
+- [x] Mutated flags[all=1]: is_authoritative = 0 (v0 stub)
+- [x] Mutated flags[all=1]: has_side_effects = 0 (v0 stub)
+- [x] Partial mutations also return 0
+- [x] Transform does not set connects/transmits/mounts
+- [x] NULL-safe queries
+
 ### Notation (test_notation.c)
 
 - [x] 'o' and 'O' recognized as omicron
@@ -47,11 +60,17 @@
 - [x] XOR flip o<->O
 - [x] flip_case_bit round-trip
 - [x] route_init zeros all fields
+- [x] All 10 public API symbols: no LL/MM/NN substrings
 - [x] NULL-safe authority queries
 
 ## Integration Gates
 
-- [ ] All C builds warning-free with -Wall -Wextra
-- [ ] No I/O in library code
-- [ ] No omi-lisp or omi-protocol import
-- [ ] All authority flags default to 0
+- [x] All C builds warning-free with -Wall -Wextra
+- [x] No I/O in library code
+- [x] No omi-lisp or omi-protocol import
+- [x] All authority flags default to 0
+- [x] is_authoritative returns 0 even with flags = 1 (v0 stub)
+- [x] has_side_effects returns 0 even with flags = 1 (v0 stub)
+- [x] Transform never sets connects/transmits/mounts
+- [x] URI-CIDR is scope grammar, not gauge grammar
+- [x] LL/MM/NN absent from public ABI symbols

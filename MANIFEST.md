@@ -19,6 +19,7 @@ omi-port/
 │   ├── test_scope.c            URI-CIDR scope parser tests
 │   ├── test_transform.c        PortTensor_G transform tests
 │   ├── test_notation.c         Omicron chirality + init tests
+│   ├── test_authority_negative.c  Negative authority proof (flags=1 still 0)
 │   └── golden/
 │       ├── basic_scope.txt     Scope examples
 │       ├── basic_transform.txt Transform records
@@ -32,6 +33,7 @@ omi-port/
 ├── text/
 │   └── PORT_TEXT.md            Text notation reference
 ├── docs/
+│   ├── OMI_LISP_HANDOFF.md     Shape-only handoff contract
 │   ├── PORT_CONTRACT.md        Interface contract
 │   ├── PORT_ABI.md             C ABI specification
 │   ├── PORT_SCOPE.md           URI-CIDR scope grammar
