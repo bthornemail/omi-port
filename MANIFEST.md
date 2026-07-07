@@ -35,6 +35,8 @@ omi-port/
 ├── text/
 │   └── PORT_TEXT.md            Text notation reference
 ├── docs/
+│   ├── ARCHITECTURE.md        System architecture
+│   ├── BOUNDARY_CHECKLIST.md  Boundary verification checklist
 │   ├── GAUGE_VECTOR_POLICY.md  F* gauge vector semantics policy
 │   ├── OMI_LISP_HANDOFF.md     Shape-only handoff contract
 │   ├── PORT_CONTRACT.md        Interface contract
@@ -45,6 +47,8 @@ omi-port/
 │   ├── PORT_AUTHORITY.md       Authority flags
 │   └── PORT_TEST_MATRIX.md     Test coverage matrix
 ├── dev-docs/                   Development notes
+├── VERSION.md                  v0.1-gauge-vector-candidate-abi
+├── RELEASE_NOTES_v0_1.md       Release notes
 ├── AGENTS.md                   Agent boundary contract
 ├── MANIFEST.md                 This file
 ├── STATUS.md                   Current status

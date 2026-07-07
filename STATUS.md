@@ -1,8 +1,8 @@
 # OMI-Port Status
 
-## v0 — Dormant Port Notation Transform
+## v0.1-gauge-vector-candidate-abi
 
-Status: **Complete**
+Status: **frozen / documented candidate ABI**
 
 ### What Exists
 
@@ -18,7 +18,9 @@ Status: **Complete**
 - `canon/OMI/Port.hs` — normative Haskell EDSL reference
 - `lisp/port-declaration.omi` — dormant declaration examples
 - `text/PORT_TEXT.md` — text notation reference
-- `docs/` — 9 docs covering gauge policy, handoff, contract, ABI, scope, transform, notation, authority, test matrix
+- `docs/` — 11 docs covering architecture, boundary checklist, gauge policy, handoff, contract, ABI, scope, transform, notation, authority, test matrix
+- `VERSION.md` — v0.1-gauge-vector-candidate-abi
+- `RELEASE_NOTES_v0_1.md` — release summary
 - `Makefile` — `make`, `make test`, `make clean`, `make hs-check`
 
 ### Build Status
