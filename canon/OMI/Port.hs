@@ -1,4 +1,3 @@
-{-# LANGUAGE Safe #-}
 {- |
 Module      : OMI.Port
 Description : Normative Haskell EDSL for OMI-Port transforms.
