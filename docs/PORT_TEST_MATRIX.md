@@ -7,7 +7,8 @@
 | `test_scope` | `tests/test_scope.c` | 10+ | URI-CIDR scope parser, scope!=gauge |
 | `test_transform` | `tests/test_transform.c` | 15+ | PortTensor_G transform |
 | `test_notation` | `tests/test_notation.c` | 20+ | Omicron chirality, init, LL/MM/NN absence |
-| `test_authority_negative` | `tests/test_authority_negative.c` | 12+ | Negative authority proof |
+| `test_authority_negative` | `tests/test_authority_negative.c` | 17+ | Negative authority proof |
+| `test_gauge_vectors` | `tests/test_gauge_vectors.c` | 50+ | Gauge vector determinism + authority |
 
 ## Coverage by Area
 
@@ -74,3 +75,11 @@
 - [x] Transform never sets connects/transmits/mounts
 - [x] URI-CIDR is scope grammar, not gauge grammar
 - [x] LL/MM/NN absent from public ABI symbols
+- [x] All 8 canonical gauges in F0..FF
+- [x] Every vector: source parses, target parses, transform succeeds
+- [x] Every vector: route.gauge matches vector gauge
+- [x] Every vector: authority flags = 0
+- [x] Every vector: side-effect flags = 0
+- [x] Every vector: deterministic across two identical transforms
+- [x] Every vector: is_authoritative == 0
+- [x] Every vector: has_side_effects == 0

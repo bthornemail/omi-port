@@ -1,0 +1,53 @@
+OMI-Port Gauge Vector Examples — v0.1-hardened
+
+Eight canonical source-target-gauge vectors demonstrating the
+PortTensor_G transform across the F0..FF gauge family.
+
+---
+Vector 1: FF Default Canonical Closure
+  source: file:///repo/alpha#/32
+  target: file:///repo/beta#/32
+  gauge:  0xFF
+  note:   Same prefix length, different URI. FF is the default closure.
+
+Vector 2: F6 XOR-like Difference
+  source: lora://915/a#/8
+  target: lora://915/b#/8
+  gauge:  0xF6
+  note:   Same scheme and prefix, different node addresses.
+
+Vector 3: F8 AND-like Intersection
+  source: https://api.example.com/v1#/64
+  target: https://api.example.com/v2#/64
+  gauge:  0xF8
+  note:   Shared base domain, different path segments.
+
+Vector 4: FE OR-like Union
+  source: file:///tmp/src#/16
+  target: file:///tmp/dst#/24
+  gauge:  0xFE
+  note:   Same directory, different files and prefix lengths.
+
+Vector 5: FB Source→Target Implication
+  source: lora://915/x#/64
+  target: lora://915/y#/64
+  gauge:  0xFB
+  note:   Same prefix, different endpoint identifiers.
+
+Vector 6: FD Target→Source Converse Implication
+  source: https://a.com/x#/48
+  target: https://b.com/y#/48
+  gauge:  0xFD
+  note:   Different domains, same prefix length.
+
+Vector 7: F0 Contradiction Lower Bound
+  source: file:///null#/0
+  target: file:///null#/0
+  gauge:  0xF0
+  note:   Identical scopes, zero prefix. F0 is the gauge family lower bound.
+
+Vector 8: F9 Equivalence / XNOR
+  source: lora://915/p#/32
+  target: lora://915/q#/32
+  gauge:  0xF9
+  note:   Different nodes, same prefix length.
