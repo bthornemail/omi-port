@@ -1,0 +1,11 @@
+OMI-IMO compact route candidate notation:
+
+  omi---imo
+
+Expanded printable route surface:
+
+  o---o/---/?---?@---@
+
+Canonical output topology uses FS/GS/RS/US four-scope ordering.
+
+LL/MM/NN are deprecated historical 3-slot transform mnemonics only.

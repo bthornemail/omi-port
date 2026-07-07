@@ -1,0 +1,24 @@
+;; OMI Layer: carrier
+;; Purpose: Dormant port declaration surface in OMI-Lisp.
+;; Authority: Non-authoritative declaration only. No eval, no validation, no receipt.
+;;
+;; These declarations describe source-target port bindings.
+;; They do not connect, transmit, mount, validate, receipt, or accept state.
+
+(port-binding
+  (source "file:///repo/input.omi#/64")
+  (target "lora://915/node/alpha#/16")
+  (gauge 0xF6)
+  (comment "LoRa uplink test binding (dormant)"))
+
+(port-binding
+  (source "https://example.com/api#/40")
+  (target "file:///var/log/out.omi#/24")
+  (gauge 0xFF)
+  (comment "Default FF transform (dormant)"))
+
+(port-binding
+  (source "lora://915/node/beta#/8")
+  (target "lora://915/node/gamma#/8")
+  (gauge 0xFA)
+  (comment "Intra-LoRa binding (dormant)"))

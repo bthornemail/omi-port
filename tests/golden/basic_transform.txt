@@ -1,0 +1,19 @@
+PortTensor_G transform records for omi-port v0.
+
+Source: file:///a#/8
+Target: file:///b#/16
+Gauge:  0xFF
+Result: OMI_PORT_OK
+Fields: fs, gs, rs, us (deterministic)
+Authority: all 0
+
+Source: file:///a#/8
+Target: file:///b#/16
+Gauge:  0xF6
+Result: OMI_PORT_OK
+Fields: differs from 0xFF
+
+Source: file:///a#/8
+Target: file:///b#/16
+Gauge:  0xEF
+Result: OMI_PORT_ERROR_INVALID_GAUGE

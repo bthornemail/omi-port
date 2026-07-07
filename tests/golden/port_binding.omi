@@ -1,0 +1,9 @@
+;; OMI Layer: carrier
+;; Purpose: Dormant port binding declaration example.
+;; Authority: Non-authoritative declaration surface.
+;; No evaluation, no validation, no receipt.
+
+(port-binding
+  (source "file:///repo/input.omi#/64")
+  (target "lora://915/node/alpha#/16")
+  (gauge 0xF6))

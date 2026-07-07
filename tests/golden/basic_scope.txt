@@ -1,0 +1,11 @@
+Canonical URI-CIDR scope examples for omi-port v0.
+
+Valid:
+  file:///repo/input.omi#/64
+  lora://915/node/alpha#/16
+  https://example.com/api#/40
+
+Invalid:
+  https://example.com/api           (no #/ prefix)
+  https://example.com#/abc          (non-numeric prefix)
+  <300-char-uri>#/32               (URI exceeds OMI_PORT_URI_MAX)
