@@ -54,8 +54,9 @@ omi-port/
 │   ├── PORT_AUTHORITY.md       Authority flags
 │   └── PORT_TEST_MATRIX.md     Test coverage matrix
 ├── dev-docs/                   Development notes
-├── VERSION.md                  v0.1-gauge-vector-candidate-abi
-├── RELEASE_NOTES_v0_1.md       Release notes
+├── VERSION.md                  v0.3-omi-lisp-port-fixtures
+├── RELEASE_NOTES_v0_1.md       Release notes (v0.1)
+├── RELEASE_NOTES_v0_3.md       Release notes (v0.3)
 ├── AGENTS.md                   Agent boundary contract
 ├── MANIFEST.md                 This file
 ├── STATUS.md                   Current status

@@ -38,7 +38,7 @@ Expected result: no output (clean working trees).
 ## No Authority Flags Set
 
 ```sh
-grep -rn 'authority\.\(accepted\|validated\|receipted\|connects\|transmits\|mounts\)\s*=\s*[^0]' src/ || true
+grep -rn 'authority\.\(accepted\|validated\|receipted\|connects\|transmits\|mounts\)\s*=\s*[1-9]' src/ || true
 ```
 
 Expected result: no matches in library code (test files may set flags
@@ -66,7 +66,8 @@ as historical context).
 - [ ] `MANIFEST.md` lists all release files
 - [ ] `STATUS.md` reflects current binary count and assertion count
 - [ ] `VERSION.md` milestone name matches the release
-- [ ] `RELEASE_NOTES_v0_1.md` exists
+- [ ] `RELEASE_NOTES_v0_1.md` exists (v0.1)
+- [ ] `RELEASE_NOTES_v0_3.md` exists (v0.3)
 - [ ] `docs/RELEASE_GATE.md` exists
 
 ## Release Gate
@@ -77,7 +78,7 @@ After boundary checks pass, run the full release gate:
 docs/RELEASE_GATE.md
 ```
 
-All items must pass before v0.2 work begins.
+All items must pass before v0.4 work begins.
 
 ## Run Checklist
 

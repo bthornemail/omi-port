@@ -1,11 +1,12 @@
 # OMI-Port Release Gate
 
-Before any v0.2 work begins, the following must be true.
+Before any v0.4 work begins, the following must be true.
 
 ## Required Artifacts
 
 - [ ] `VERSION.md` exists and names the current milestone
-- [ ] `RELEASE_NOTES_v0_1.md` exists
+- [ ] `RELEASE_NOTES_v0_1.md` exists (v0.1)
+- [ ] `RELEASE_NOTES_v0_3.md` exists (v0.3)
 - [ ] `docs/RELEASE_GATE.md` exists (this file)
 - [ ] `docs/BOUNDARY_CHECKLIST.md` exists
 - [ ] `MANIFEST.md` lists all release files
@@ -37,7 +38,7 @@ Expected: no matches.
 ## Authority Non-Zero Scan
 
 ```sh
-grep -rn 'authority\.\(accepted\|validated\|receipted\|connects\|transmits\|mounts\)\s*=\s*[^0]' src/ || true
+grep -rn 'authority\.\(accepted\|validated\|receipted\|connects\|transmits\|mounts\)\s*=\s*[1-9]' src/ || true
 ```
 
 Expected: no matches.
@@ -65,7 +66,8 @@ Expected: no output (clean working trees).
 
 ## Gate Decision
 
-If all items pass, v0.1 is intact and v0.2 work may begin.
+If all items pass, all frozen milestones (v0.1 ABI, v0.2 golden route,
+v0.3 fixtures) are intact and v0.4 work may begin.
 
 If any item fails, the release gate is closed until the failure is
 resolved or the milestone version is intentionally bumped.

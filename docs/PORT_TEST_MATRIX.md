@@ -10,6 +10,7 @@
 | `test_authority_negative` | `tests/test_authority_negative.c` | 17+ | Negative authority proof |
 | `test_gauge_vectors` | `tests/test_gauge_vectors.c` | 50+ | Gauge vector determinism + authority |
 | `test_route_expected` | `tests/test_route_expected.c` | 160+ | Golden expected route output freeze |
+| `test_port_forms` | `tests/test_port_forms.c` | 56+ | OMI-Lisp port fixture verification |
 
 ## Coverage by Area
 
@@ -99,3 +100,14 @@
 - [x] All 8 frozen golden expected route outputs match transform (v0.2 freeze)
 - [x] Every golden vector: authority = 0, side-effects = 0
 - [x] Every golden vector: is_authoritative = 0, has_side_effects = 0
+
+### Port Forms (test_port_forms.c)
+
+- [x] 8 forms parsed from `port_forms.omi`
+- [x] Every form: source present
+- [x] Every form: target present
+- [x] Every form: gauge present
+- [x] Every form: state dormant present
+- [x] Every form: accepted = 0
+- [x] Every form: validated = 0
+- [x] Every form: receipted = 0

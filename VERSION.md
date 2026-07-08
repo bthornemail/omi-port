@@ -1,19 +1,36 @@
 # OMI-Port Version
 
-**omi-port v0.1-gauge-vector-candidate-abi**
+**omi-port v0.3-omi-lisp-port-fixtures**
 
-Status: frozen / documented candidate ABI
+Status: frozen / documented candidate ABI + golden route + fixture handoff
 
-This version marks the first documented milestone of `omi-port` as a
-standalone dormant source-target route candidate generator.
+This version adds read-only OMI-Lisp-shaped port binding fixture
+declarations, proven by test, without creating a code dependency
+on omi-lisp.
+
+Milestone ladder:
+
+```text
+v0.1-gauge-vector-candidate-abi
+    candidate ABI exists and is release-gated
+
+v0.2-golden-route-outputs
+    route field behavior is frozen against drift
+
+v0.3-omi-lisp-port-fixtures
+    OMI-Lisp-shaped declarations exist as fixture handoff only
+```
 
 Doctrine:
 
 ```text
-omi-port is a deterministic dormant source-target route candidate generator.
+omi-lisp shape may declare.
+omi-port may derive.
+golden outputs may freeze behavior.
+fixtures may demonstrate handoff.
 
-It names and derives.
-It does not connect.
-It does not prove.
-It does not accept.
+None of these validate.
+None of these receipt.
+None of these accept.
+None of these connect.
 ```

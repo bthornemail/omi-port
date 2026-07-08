@@ -1,4 +1,4 @@
-# OMI-Lisp / OMI-Port Handoff
+# OMI-Lisp / OMI-Port Handoff (v0.3+)
 
 ## Purpose
 
@@ -49,9 +49,9 @@ Dormant port binding declarations use this shape:
 ```
 
 Eight canonical fixtures matching the gauge vectors are in
-`tests/golden/port_forms.omi`. The test in `tests/test_port_forms.c`
-verifies each fixture contains source, target, gauge, dormant state,
-and zero authority fields.
+`tests/golden/port_forms.omi` (added in v0.3). The test in
+`tests/test_port_forms.c` verifies each fixture contains source,
+target, gauge, dormant state, and zero authority fields.
 
 ## Handoff Rule
 
