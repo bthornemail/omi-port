@@ -37,6 +37,7 @@ omi-port/
 ├── docs/
 │   ├── ARCHITECTURE.md        System architecture
 │   ├── BOUNDARY_CHECKLIST.md  Boundary verification checklist
+│   ├── RELEASE_GATE.md        Release gate discipline
 │   ├── GAUGE_VECTOR_POLICY.md  F* gauge vector semantics policy
 │   ├── OMI_LISP_HANDOFF.md     Shape-only handoff contract
 │   ├── PORT_CONTRACT.md        Interface contract

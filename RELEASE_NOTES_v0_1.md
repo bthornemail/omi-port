@@ -41,6 +41,11 @@ Pure Haskell EDSL matching C transform semantics. Compiles with `make hs-check`.
 
 **Total: 5 binaries, 243+ assertions, 0 failures, 0 warnings**
 
+## Release Gate
+
+Before any v0.2 work, `docs/RELEASE_GATE.md` must pass. This protects
+the frozen v0.1 ABI from accidental scope expansion or behavior drift.
+
 ## Key Doctrines
 
 ### Boundary

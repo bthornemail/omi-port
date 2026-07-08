@@ -63,9 +63,21 @@ as historical context).
 
 ## Manifest Current
 
-- [ ] `MANIFEST.md` lists all new files
+- [ ] `MANIFEST.md` lists all release files
 - [ ] `STATUS.md` reflects current binary count and assertion count
 - [ ] `VERSION.md` milestone name matches the release
+- [ ] `RELEASE_NOTES_v0_1.md` exists
+- [ ] `docs/RELEASE_GATE.md` exists
+
+## Release Gate
+
+After boundary checks pass, run the full release gate:
+
+```sh
+docs/RELEASE_GATE.md
+```
+
+All items must pass before v0.2 work begins.
 
 ## Run Checklist
 

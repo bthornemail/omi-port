@@ -33,3 +33,7 @@ All five test binaries build warning-free and pass.
 - No omi-protocol import
 - No I/O in library
 - All authority flags default to 0
+
+## Release Gate
+
+v0.1 is frozen. Before v0.2 work begins, `docs/RELEASE_GATE.md` must pass.
