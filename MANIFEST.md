@@ -21,12 +21,16 @@ omi-port/
 │   ├── test_notation.c         Omicron chirality + init tests
 │   ├── test_authority_negative.c  Negative authority proof (flags=1 still 0)
 │   ├── test_gauge_vectors.c       Gauge vector determinism + authority proof
+│   ├── test_route_expected.c      Golden expected route output freeze
+│   ├── test_port_forms.c          OMI-Lisp port fixture verification
 │   └── golden/
 │       ├── basic_scope.txt        Scope examples
 │       ├── basic_transform.txt    Transform records
 │       ├── omi_route.txt          OMI-IMO notation examples
 │       ├── port_binding.omi       Dormant port binding example
-│       └── route_vectors.txt      Eight canonical gauge vectors
+│       ├── route_vectors.txt      Eight canonical gauge vectors
+│       ├── route_expected.txt     Frozen expected route outputs (v0.2)
+│       └── port_forms.omi         Dormant OMI-Lisp port binding fixtures (v0.3)
 ├── canon/
 │   └── OMI/
 │       └── Port.hs             Normative Haskell EDSL reference
@@ -39,6 +43,8 @@ omi-port/
 │   ├── BOUNDARY_CHECKLIST.md  Boundary verification checklist
 │   ├── RELEASE_GATE.md        Release gate discipline
 │   ├── GAUGE_VECTOR_POLICY.md  F* gauge vector semantics policy
+│   ├── GOLDEN_ROUTE_POLICY.md  Golden route output freeze policy
+│   ├── TRANSFORM_VERSIONING.md Transform versioning contract
 │   ├── OMI_LISP_HANDOFF.md     Shape-only handoff contract
 │   ├── PORT_CONTRACT.md        Interface contract
 │   ├── PORT_ABI.md             C ABI specification

@@ -10,6 +10,8 @@ Before any v0.2 work begins, the following must be true.
 - [ ] `docs/BOUNDARY_CHECKLIST.md` exists
 - [ ] `MANIFEST.md` lists all release files
 - [ ] `STATUS.md` names the current milestone
+- [ ] `docs/GOLDEN_ROUTE_POLICY.md` exists (if golden route outputs are frozen)
+- [ ] `docs/TRANSFORM_VERSIONING.md` exists (if transform versioning is in effect)
 
 ## Build
 

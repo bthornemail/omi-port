@@ -9,6 +9,7 @@
 | `test_notation` | `tests/test_notation.c` | 20+ | Omicron chirality, init, LL/MM/NN absence |
 | `test_authority_negative` | `tests/test_authority_negative.c` | 17+ | Negative authority proof |
 | `test_gauge_vectors` | `tests/test_gauge_vectors.c` | 50+ | Gauge vector determinism + authority |
+| `test_route_expected` | `tests/test_route_expected.c` | 160+ | Golden expected route output freeze |
 
 ## Coverage by Area
 
@@ -51,6 +52,18 @@
 - [x] Transform does not set connects/transmits/mounts
 - [x] NULL-safe queries
 
+### Golden Route Expected (test_route_expected.c)
+
+- [x] `route_expected.txt` parses all 8 vectors
+- [x] Every source scope parses
+- [x] Every target scope parses
+- [x] Every gauge is F0..FF
+- [x] All 12 route fields match frozen values per vector
+- [x] All authority flags = 0
+- [x] All side-effect flags = 0
+- [x] is_authoritative = 0
+- [x] has_side_effects = 0
+
 ### Notation (test_notation.c)
 
 - [x] 'o' and 'O' recognized as omicron
@@ -83,3 +96,6 @@
 - [x] Every vector: deterministic across two identical transforms
 - [x] Every vector: is_authoritative == 0
 - [x] Every vector: has_side_effects == 0
+- [x] All 8 frozen golden expected route outputs match transform (v0.2 freeze)
+- [x] Every golden vector: authority = 0, side-effects = 0
+- [x] Every golden vector: is_authoritative = 0, has_side_effects = 0

@@ -1,0 +1,84 @@
+;; omi-port v0.3 — dormant OMI-Lisp port binding fixtures
+;; These forms describe source-target-gauge bindings for the 8 canonical
+;; gauge vectors. They are non-authoritative declarations only.
+;; No evaluation, no validation, no receipt, no acceptance.
+
+(port-binding
+  (name "default-closure")
+  (source "file:///repo/alpha#/32")
+  (target "file:///repo/beta#/32")
+  (gauge 0xFF)
+  (state dormant)
+  (accepted 0)
+  (validated 0)
+  (receipted 0))
+
+(port-binding
+  (name "xor-difference")
+  (source "lora://915/a#/8")
+  (target "lora://915/b#/8")
+  (gauge 0xF6)
+  (state dormant)
+  (accepted 0)
+  (validated 0)
+  (receipted 0))
+
+(port-binding
+  (name "and-intersection")
+  (source "https://api.example.com/v1#/64")
+  (target "https://api.example.com/v2#/64")
+  (gauge 0xF8)
+  (state dormant)
+  (accepted 0)
+  (validated 0)
+  (receipted 0))
+
+(port-binding
+  (name "or-union")
+  (source "file:///tmp/src#/16")
+  (target "file:///tmp/dst#/24")
+  (gauge 0xFE)
+  (state dormant)
+  (accepted 0)
+  (validated 0)
+  (receipted 0))
+
+(port-binding
+  (name "implication")
+  (source "lora://915/x#/64")
+  (target "lora://915/y#/64")
+  (gauge 0xFB)
+  (state dormant)
+  (accepted 0)
+  (validated 0)
+  (receipted 0))
+
+(port-binding
+  (name "converse")
+  (source "https://a.com/x#/48")
+  (target "https://b.com/y#/48")
+  (gauge 0xFD)
+  (state dormant)
+  (accepted 0)
+  (validated 0)
+  (receipted 0))
+
+(port-binding
+  (name "contradiction")
+  (source "file:///null#/0")
+  (target "file:///null#/0")
+  (gauge 0xF0)
+  (state dormant)
+  (accepted 0)
+  (validated 0)
+  (receipted 0))
+
+(port-binding
+  (name "equivalence")
+  (source "lora://915/p#/32")
+  (target "lora://915/q#/32")
+  (gauge 0xF9)
+  (state dormant)
+  (accepted 0)
+  (validated 0)
+  (receipted 0))

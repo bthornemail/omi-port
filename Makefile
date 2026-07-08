@@ -16,13 +16,15 @@ TEST_BIN_TRANSFORM := $(BUILD_DIR)/test_transform
 TEST_BIN_NOTATION  := $(BUILD_DIR)/test_notation
 TEST_BIN_AUTHORITY_NEG := $(BUILD_DIR)/test_authority_negative
 TEST_BIN_GAUGE_VECTORS := $(BUILD_DIR)/test_gauge_vectors
+TEST_BIN_ROUTE_EXPECTED := $(BUILD_DIR)/test_route_expected
+TEST_BIN_PORT_FORMS    := $(BUILD_DIR)/test_port_forms
 
 .PHONY: all test clean hs-check
 
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
-all: $(TEST_BIN_SCOPE) $(TEST_BIN_TRANSFORM) $(TEST_BIN_NOTATION) $(TEST_BIN_AUTHORITY_NEG) $(TEST_BIN_GAUGE_VECTORS)
+all: $(TEST_BIN_SCOPE) $(TEST_BIN_TRANSFORM) $(TEST_BIN_NOTATION) $(TEST_BIN_AUTHORITY_NEG) $(TEST_BIN_GAUGE_VECTORS) $(TEST_BIN_ROUTE_EXPECTED) $(TEST_BIN_PORT_FORMS)
 
 $(SRC_DIR)/omi_port.o: $(SRC_DIR)/omi_port.c include/omi_port.h
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -42,12 +44,20 @@ $(TEST_BIN_AUTHORITY_NEG): $(OBJS) $(TEST_DIR)/test_authority_negative.c include
 $(TEST_BIN_GAUGE_VECTORS): $(OBJS) $(TEST_DIR)/test_gauge_vectors.c include/omi_port.h $(TEST_DIR)/test_harness.h | $(BUILD_DIR)
 	$(CC) $(CFLAGS) $(OBJS) $(TEST_DIR)/test_gauge_vectors.c -o $@
 
-test: $(TEST_BIN_SCOPE) $(TEST_BIN_TRANSFORM) $(TEST_BIN_NOTATION) $(TEST_BIN_AUTHORITY_NEG) $(TEST_BIN_GAUGE_VECTORS)
+$(TEST_BIN_ROUTE_EXPECTED): $(OBJS) $(TEST_DIR)/test_route_expected.c include/omi_port.h $(TEST_DIR)/test_harness.h | $(BUILD_DIR)
+	$(CC) $(CFLAGS) $(OBJS) $(TEST_DIR)/test_route_expected.c -o $@
+
+$(TEST_BIN_PORT_FORMS): $(TEST_DIR)/test_port_forms.c $(TEST_DIR)/test_harness.h
+	$(CC) $(CFLAGS) $(TEST_DIR)/test_port_forms.c -o $@
+
+test: $(TEST_BIN_SCOPE) $(TEST_BIN_TRANSFORM) $(TEST_BIN_NOTATION) $(TEST_BIN_AUTHORITY_NEG) $(TEST_BIN_GAUGE_VECTORS) $(TEST_BIN_ROUTE_EXPECTED) $(TEST_BIN_PORT_FORMS)
 	./$(TEST_BIN_SCOPE)
 	./$(TEST_BIN_TRANSFORM)
 	./$(TEST_BIN_NOTATION)
 	./$(TEST_BIN_AUTHORITY_NEG)
 	./$(TEST_BIN_GAUGE_VECTORS)
+	./$(TEST_BIN_ROUTE_EXPECTED)
+	./$(TEST_BIN_PORT_FORMS)
 
 hs-check:
 	@if command -v ghc >/dev/null 2>&1; then \

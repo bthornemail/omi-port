@@ -32,6 +32,27 @@ downstream (not part of omi-lisp or omi-port)
 - Neither connects, sends, receives, or mounts
 - Neither imports the other's code
 
+## Fixture Format
+
+Dormant port binding declarations use this shape:
+
+```lisp
+(port-binding
+  (name "binding-name")
+  (source "<uri>#/<prefix>")
+  (target "<uri>#/<prefix>")
+  (gauge 0x..)
+  (state dormant)
+  (accepted 0)
+  (validated 0)
+  (receipted 0))
+```
+
+Eight canonical fixtures matching the gauge vectors are in
+`tests/golden/port_forms.omi`. The test in `tests/test_port_forms.c`
+verifies each fixture contains source, target, gauge, dormant state,
+and zero authority fields.
+
 ## Handoff Rule
 
 The handoff is **shape-only**:

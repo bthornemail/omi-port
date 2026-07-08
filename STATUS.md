@@ -13,12 +13,14 @@ Status: **frozen / documented candidate ABI**
 - `tests/test_notation.c` — 30+ checks for chirality + init + LL/MM/NN absence
 - `tests/test_authority_negative.c` — 17+ checks proving v0 queries return 0 even with flags = 1
 - `tests/test_gauge_vectors.c` — 50+ checks across 8 canonical vectors
+- `tests/test_route_expected.c` — golden expected route output freeze (8 vectors × 20+ checks)
+- `tests/test_port_forms.c` — OMI-Lisp port fixture format (8 forms, 56+ checks)
 - `tests/test_harness.h` — shared CHECK macros
-- `tests/golden/` — 5 golden fixture files
+- `tests/golden/` — 7 golden fixture files including `route_expected.txt` and `port_forms.omi`
 - `canon/OMI/Port.hs` — normative Haskell EDSL reference
 - `lisp/port-declaration.omi` — dormant declaration examples
 - `text/PORT_TEXT.md` — text notation reference
-- `docs/` — 11 docs covering architecture, boundary checklist, gauge policy, handoff, contract, ABI, scope, transform, notation, authority, test matrix
+- `docs/` — 13 docs covering architecture, boundary checklist, gauge policy, golden route policy, transform versioning, handoff, contract, ABI, scope, transform, notation, authority, test matrix
 - `VERSION.md` — v0.1-gauge-vector-candidate-abi
 - `RELEASE_NOTES_v0_1.md` — release summary
 - `Makefile` — `make`, `make test`, `make clean`, `make hs-check`
